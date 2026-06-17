@@ -501,18 +501,23 @@ a {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
-  .port-entry--left,
-  .port-entry--right {
-    flex-direction: column;
+  .port-entry--left {
+    flex-direction: column; /* Left class: Video is already first in HTML, so it stacks on top */
     min-height: unset;
   }
 
-  /* Reset order on mobile */
+  .port-entry--right {
+    flex-direction: column-reverse; /* Right class: Info is first in HTML, so we reverse the column so Video appears on top */
+    min-height: unset;
+  }
+
+  /* Reset any custom order just in case */
   .port-entry--right > .port-entry__video,
   .port-entry--right > .port-entry__info {
     order: unset;
   }
 
+  /* Ensure both video and info take full width on mobile */
   .port-entry__video,
   .port-entry__info {
     flex: 0 0 100%;
@@ -563,3 +568,102 @@ a {
   }
 }
 
+/* ============================================================
+   RESPONSIVE - MOBILE IMPROVEMENTS
+   ============================================================ */
+
+/* Tablets and Large Phones */
+@media (max-width: 900px) {
+  /* --- HERO SECTION FIXES --- */
+  .hero__inner {
+    flex-direction: column !important; /* Stack text above video */
+    gap: 40px !important; /* Remove the 500px desktop gap */
+  }
+  .hero__left, 
+  .hero__right {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+    text-align: center;
+    align-items: center;
+  }
+  /* Allow text to wrap and fit the screen */
+  .hero__headline, 
+  .hero__sub {
+    white-space: normal !important; 
+  }
+  .hero__headline {
+    margin-bottom: 20px !important;
+  }
+  /* Shrink the CTA button for mobile */
+  .hero__cta-btn {
+    font-size: 1.4rem !important;
+    padding: 12px 24px !important;
+    border-width: 3px !important;
+    margin-top: 10px !important;
+  }
+
+  /* --- FOOTER SECTION FIXES --- */
+  .hire__heading {
+    font-size: clamp(2.5rem, 8vw, 3.2rem) !important;
+  }
+  .hire__sub {
+    font-size: 1.2rem !important;
+  }
+  .hire__method {
+    font-size: 1.8rem !important;
+    margin-top: 20px !important;
+  }
+  .hire__btn {
+    font-size: 1.2rem !important;
+    padding: 12px 25px !important;
+  }
+  /* Fix the negative margin overlap on the footer logo */
+  .footer__wordmark {
+    max-width: 100px !important;
+    margin-bottom: -40px !important; 
+    margin-top: 10px !important;
+  }
+}
+
+/* Small Phones (< 480px wide) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 24px 5% 40px !important;
+  }
+  .hero__headline {
+    font-size: 2.2rem !important;
+  }
+  .hero__sub {
+    font-size: 1.1rem !important;
+  }
+  .hero__cta-btn {
+    font-size: 0.9rem !important;
+    padding: 10px 18px !important;
+    border-width: 2px !important;
+  }
+
+  /* Reduce the Portfolio text so it's not cramped */
+  .port-entry__name {
+    font-size: 2.2rem !important;
+  }
+  .port-entry__stat {
+    font-size: 1.6rem !important;
+  }
+
+  /* Further reduce Footer sizing for tiny screens */
+  .hire__heading {
+    font-size: 2.0rem !important;
+  }
+  .hire__sub {
+    font-size: 0.95rem !important;
+  }
+  .hire__method {
+    font-size: 1.0rem !important;
+  }
+  .hire__btn {
+    font-size: 0.9rem !important;
+    padding: 10px 18px !important;
+    white-space: nowrap !important; /* Keep button text on one line */
+  }
+}
