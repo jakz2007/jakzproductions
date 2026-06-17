@@ -77,7 +77,7 @@
     <!-- 3. TGG 2.1M – video LEFT, info RIGHT -->
     <div class="port-entry port-entry--left bg3">
       <div class="port-entry__video">
-        <div class="yt-facade" data-video-id="5UKg1c9vNdI&t=3s">
+        <div class="yt-facade" data-video-id="5UKg1c9vNdI">
           <img class="yt-facade__thumb" src="" alt="TGG GTA map video" />
           <button class="yt-facade__play" aria-label="Play video"><!--YTSVG--></button>
         </div>
@@ -139,7 +139,7 @@
         <p class="port-entry__stat">250K+ SUBS</p>
       </div>
       <div class="port-entry__video">
-        <div class="yt-facade" data-video-id="ZQGFWrR6j08&t=3s">
+        <div class="yt-facade" data-video-id="ZQGFWrR6j08">
           <img class="yt-facade__thumb" src="" alt="YDE video" />
           <button class="yt-facade__play" aria-label="Play video"><!--YTSVG--></button>
         </div>
@@ -185,7 +185,7 @@
         return;
       }
 
-      thumb.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+      thumb.src = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
       thumb.onerror = () => { thumb.style.display = 'none'; facade.style.background = '#111'; };
 
       facade.addEventListener('click', () => {
